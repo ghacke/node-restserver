@@ -39,6 +39,7 @@ app.get('/usuario', vertificaToken, (req, res) => {
         })
 });
 
+//app.post('/usuario', function(req, res) {
 app.post('/usuario', [vertificaToken, verificaRolAdmin], function(req, res) {
 
     let body = req.body;

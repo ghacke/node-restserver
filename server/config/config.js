@@ -7,7 +7,7 @@ process.env.URLDB = process.env.MONGO_URI || 'mongodb://localhost:27017/cafe';
 // ============================
 // vencimiento del Token
 // ============================
-process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
+process.env.CADUCIDAD_TOKEN = '48h';
 
 // ============================
 // SEED de auth
