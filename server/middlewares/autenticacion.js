@@ -42,7 +42,32 @@ let verificaRolAdmin = (req, res, next) => {
     next();
 };
 
+// ========================
+// Verificar Token para Imagen
+// ========================
+let vertificaTokenImg = (req, res, next) => {
+
+    let token = req.query.token;
+
+    jwt.verify(token, process.env.SEED, (err, decoded) => {
+
+        if (err) {
+            return res.status(401).json({
+                ok: false,
+                err: {
+                    message: 'El token no es valido.'
+                }
+            });
+        }
+
+        req.usuario = decoded.usuario;
+        next();
+    });
+};
+
+
 module.exports = {
     vertificaToken,
-    verificaRolAdmin
+    verificaRolAdmin,
+    vertificaTokenImg
 }
